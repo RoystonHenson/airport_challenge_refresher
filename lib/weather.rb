@@ -1,17 +1,12 @@
 class Weather
-  attr_reader :stormy
-
-  def initialize
-    @stormy = false
-  end
 
   def stormy?
-    random_stormy_generator
+    random_boolean_generator
   end
 
   private
 
-  def random_stormy_generator
-    rand(10) > 5 ? @stormy = true : @stormy = false
+  def random_boolean_generator
+    rand(10) > 8 ? true : false
   end
 end
