@@ -2,11 +2,18 @@ require 'airport'
 
 describe Airport do
   let(:plane) { double('plane') }
-  # let(:weather) { double('weather', stormy: false) }
 
   describe '#land' do
-    it 'lands a plane at the airport' do
-      expect(subject.land(plane)).to eq(plane)
+    context 'when weather is sunny' do
+      it 'lands a plane at the airport' do
+        expect(subject.land(plane)).to eq(plane)
+      end
+    end
+
+    context 'when weather is stormy' do
+      it 'it raises error' do
+        expect { subject.land(plane) }.to raise_error('It is too stormy to land.')
+      end
     end
   end
 
@@ -19,7 +26,8 @@ describe Airport do
     end
 
     context 'when weather is stormy' do
-      it 'prevents plane from taking off' do
+      it 'raises error' do
+        allow(subject).to receive(:stormy?).and_return(true)
         expect { subject.take_off(plane) }.to raise_error('It is too stormy to take off.')
       end
     end
