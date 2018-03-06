@@ -1,15 +1,19 @@
 require_relative 'weather'
 
 class Airport
-  attr_reader :bays
+  attr_reader :bays, :capacity
+
+  CAPACITY = 1
 
   def initialize
       @bays = []
+      @capacity = CAPACITY
   end
 
   def land(plane)
     raise 'It is too stormy to land.' if stormy?
-    plane
+    raise 'The airport is full.' if full?
+    bays << plane
   end
 
   def take_off(plane)
@@ -26,5 +30,9 @@ class Airport
 
   def confirm_take_off
     puts 'The plane has left the airport.'
+  end
+
+  def full?
+    bays.count >= capacity
   end
 end

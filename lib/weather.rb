@@ -7,6 +7,6 @@ class Weather
   private
 
   def random_boolean_generator
-    rand(10) > 0 ? true : false
+    rand(10) > 9 ? true : false
   end
 end
