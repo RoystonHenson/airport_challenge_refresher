@@ -1,6 +1,11 @@
 require_relative 'weather'
 
 class Airport
+  attr_reader :bays
+
+  def initialize
+      @bays = []
+  end
 
   def land(plane)
     raise 'It is too stormy to land.' if stormy?

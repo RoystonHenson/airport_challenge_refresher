@@ -3,6 +3,12 @@ require 'airport'
 describe Airport do
   let(:plane) { double('plane') }
 
+  describe '#initialize' do
+    it 'initialises with empty bays' do
+      expect(subject.bays).to eq([])
+    end
+  end
+
   describe '#land' do
     context 'when weather is sunny' do
       it 'lands a plane at the airport' do
