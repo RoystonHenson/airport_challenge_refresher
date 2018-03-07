@@ -4,4 +4,8 @@ class Plane
   def initialize
     @airbourne = true
   end
+
+  def landed
+    @airbourne = false
+  end
 end

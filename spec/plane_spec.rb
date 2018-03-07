@@ -6,4 +6,11 @@ describe Plane do
       expect(subject.airbourne).to eq(true)
     end
   end
+
+  describe '#landed' do
+    it 'sets airbourne to false' do
+      subject.landed
+      expect(subject.airbourne).to eq(false)
+    end
+  end
 end
