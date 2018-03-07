@@ -8,4 +8,8 @@ class Plane
   def landed
     @airbourne = false
   end
+
+  def departed
+    @airbourne = true
+  end
 end
