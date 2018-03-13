@@ -1,7 +1,7 @@
 require 'weather'
 
 describe Weather do
-  describe '#stormy?' do
+  describe '#is_stormy?' do
     it 'is stormy' do
       allow(subject).to receive(:random_boolean_generator).and_return(true)
       expect(subject.is_stormy?).to be(true)

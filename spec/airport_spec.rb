@@ -13,7 +13,7 @@ describe Airport do
         expect(subject.capacity).to eq(Airport::DEFAULT_CAPACITY)
       end
     end
-    
+
     context 'user sets capacity' do
       subject { Airport.new(20) }
       it 'has a user set capacity' do
@@ -39,6 +39,10 @@ describe Airport do
         expect { subject.land(plane) }.to raise_error('The airport is full.')
       end
 
+      it 'prevents plane landing when already landed' do
+        subject.land(plane)
+        expect { subject.land(plane) }.to raise_error('This plane has already landed.')
+      end
     end
 
     context 'when weather is stormy' do
