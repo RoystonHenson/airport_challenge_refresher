@@ -14,6 +14,7 @@ class Airport
   def land(plane)
     raise 'It is too stormy to land.' if stormy?
     raise 'The airport is full.' if full?
+    raise 'This plane has already landed.' if bays.include?(plane)
     bays << plane
   end
 

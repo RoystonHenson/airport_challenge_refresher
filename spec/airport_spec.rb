@@ -34,7 +34,7 @@ describe Airport do
       it 'raises error when airport is full' do
         allow(subject).to receive(:stormy?).and_return(false)
         Airport::DEFAULT_CAPACITY.times do
-          subject.land(plane)
+          subject.land(double('plane'))
         end
         expect { subject.land(plane) }.to raise_error('The airport is full.')
       end
